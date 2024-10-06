@@ -8,17 +8,36 @@
 <style>
     .first-div{
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr ;
+        grid-template-columns: 1fr 1fr 1fr;
         height: 150px;
         column-gap: 12px;
         row-gap: 14px;
-        padding-left: 80px;
+       
     }
+    @media(max-width:750px){
+        .first-div{
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (min-width:751px) and (max-width:999px){
+            .first-div{
+            grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+    }
+    @media(min-width:1000px){
+        .first-div{
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+        
+    }
+
     .thumbnail{width:100%;
 
     }
     .channel-picture,.video-info{
-        display: inline-block;
+        display:inline-block;
         vertical-align: top;
       
     }
@@ -30,9 +49,11 @@
         display: flex;
         flex: 1;
         margin-right: 35px;
-        margin-left: 70px;
+        margin-left: 200px;
         max-width: 3000px;
-        
+        width:1000px ;
+        align-items: center;
+        justify-content: center;
     }
     .header{
         display: flex;
@@ -53,9 +74,9 @@
         display: flex;
         flex-shrink: 0;
         width: 300px;
-        position: relative;
-        
-        
+        justify-content: space-between;
+        align-items: center;
+       
     }
     .left-side{
         width: 250px;
@@ -67,13 +88,13 @@
     }
     .channel-pic{
         border-radius: 15px;
-        margin-left: 32px;
+        margin-right: 20px;
     }
     .hamburger-menu{
         height: 30px;
     }
     .youtube-logo{
-        height: 40px;
+        height: 50px;
         margin-left: 36px;
     }
     .search{
@@ -81,55 +102,111 @@
         max-width: 300px;
         display: flex;
         flex: 1;
-
-        
-
+        border-color: rgb(192,192,192);
+        border-style: solid;
+        border-width: 1px;
+        padding-left: 12px;
+        font-size: 16px;
+        min-width: 0;
+        box-shadow: inset 1px 2px 2px rgba(0, 0, 0, 0.15);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        height: 40px; 
     }
+    
     .search-icon{
         height: 30px;
-        background-color: white;
-        
-
+        margin-top: 4px;
 
     }
     .button-search-icon{
+        height: 40px;
+        width: 66px;
         margin-left: -2px;
+        background-color: #f7f7f7;
+        border-color: rgb(192,192,192);
+        border-style: solid;
+        border-width: 1px;
+        position: relative;
+       
        
         
         
+    }
+    .button-search-icon .position-search,
+    .button-voice-icon .position-voice
+    {
+        position: absolute;
+        background-color: gray;
+        padding: 4px 8px 4px 8px;
+        border-radius: 2px;
+        bottom: -30px;
+        color: white;
+        font-size: 12px;
+        opacity: 0;
+        pointer-events: none;
+        white-space: nowrap;
+        
+    }
+   .button-search-icon:hover .position-search, 
+   .button-voice-icon:hover .position-voice
+   {
+        opacity: 1;
     }
     .voice-icon{
         border-radius: 20px;
         height: 30px;
         
     }
-    .upload,.notifications,.yt-apps,.channel-pic{
+    .upload,
+    .notifications,
+    .yt-apps,.channel-pic{
         height: 30px;
     }
     body{
         padding-top: 70px;
+        background-color: #f8f9fa;
+        font-family: Roboto, Arial;
        
 
     }
     .button-voice-icon{
         border: none;
         margin-left: 20px;
-        background-color: rgb(243, 235, 235);
+        background-color: #f7f7f7;
         border-radius: 25px;
+        position: relative;
+        display: flex;
+        justify-content: center;
     }
+    
     .side-bar{
-        width: 72px;
+        width: 76px;
         position: fixed;
+        display: flex;
+        flex-direction: column;
         bottom: 0;
         left: 0;
         top: 55px;
         background-color:white;
+        justify-content: center;
+        align-items: center;
+        white-space: nowrap;
+
+       
         
     }
     .sidebar-link{
-        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         height: 76px;
-
+        width:75px ;
+        font-size: 10px;
+        font-family: sans-serif;
+        justify-content: space-between;
+        margin-top: 20px;
     }
     
     .sidebar-link:hover{
@@ -141,19 +218,87 @@
         right: 10px;
         bottom: 14px;
        color: white;
-       font-size: 12px;
+       font-size: 15px;
        font-weight: 500;
        padding: 4px 4px 4px 4px;
        border-radius: 2px;
+       font-family: Arial, Helvetica, sans-serif;
     }
     .thumb-row{
         position: relative;
         z-index: -1;
     }
+    .sidebar-link img{
+        height: 30px;
+        width: 70px;
+    }
+    body{
+        padding-left: 85px;
+    }
+    .yt-apps-container,
+    .upload-container,
+    .notifications-container{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .yt-apps-container .position-apps,
+    .upload-container .position-upload,
+    .notifications-container .position-notifications{
+        position: absolute;
+        background-color: gray;
+        padding: 4px 12px 4px 12px;
+        border-radius: 2px;
+        bottom: -30px;
+        color: white;
+        font-size: 15px;
+        opacity: 0;
+        pointer-events: none;
+        white-space: nowrap;
+        
+
+    }
+    .yt-apps-container:hover .position-apps,
+    .upload-container:hover .position-upload,
+    .notifications-container:hover .position-notifications
+    
+    {
+        opacity: 1;
+    }
+   .video-overall-details{
+    display: flex;
+    flex-direction: column;
+   }
+   .video-title{
+    font-size: 20px;
+    font-weight: bold;
+    
+   }
+   .channel-overall-details{
+    display: flex;
+    flex-direction: row;
+   }
+   .video-info{
+    margin-left: 20px;
+   }
+   .video-author,.video-stats{
+    font-size: 12px;
+    color: rgb(96, 96, 96);
+    
+    font-weight: bold;
+
+   }
+   p{
+    font-size: roboto, Arial;
+   }
+    
     
     
 </style>
 <body>
+   
     <div class="header">
         <div class="left-side">
             <img class="hamburger-menu" src="thumbnails/hamburger-menu.png">
@@ -164,18 +309,43 @@
         <div class="middle-side">
             <input class="search" type="search" placeholder="search" >
           <button class="button-search-icon">
-             <img class="search-icon" src="thumbnails/search-icon.png">
+            
+             <img class="search-icon" src="thumbnails/search.svg">
+             <div class="position-search">
+                Search
+            </div>
+            </button>
              <button class="button-voice-icon">
                 <img class="voice-icon" src="thumbnails/voice-search-icon-new.svg">
+                <div class="position-voice">
+                    search with your voice
+                </div>
             </button>
 
-            </button>
+            
     </div>
         <div class="right-side">
-            <img class="upload" src="thumbnails/upload.png">
+            <div class="upload-container">
+            <img class="upload" src="thumbnails/upload.jpeg.svg">
+            <div class="position-upload">
+                upload
+            </div>
+        </div>
             
-            <img class="yt-apps" src="thumbnails/yt-apps.png">
-            <img class="notifications" src="thumbnails/notifications.png">
+            <div class="yt-apps-container">
+            <img class="yt-apps" src="thumbnails/youtube-apps.svg">
+            <div class="position-apps">
+                YouTube apps
+            </div>
+        </div>
+            
+            <div class="notifications-container">
+            <img class="notifications" src="thumbnails/notifications.svg">
+            <div class="position-notifications">
+                notifications
+            </div>
+            </div>
+            
             <img 
             class="channel-pic" 
             src="thumbnails/Black And White Globe Y2k Streetwear Logo_20240825_212617_0000.png">
@@ -183,12 +353,42 @@
     </div>
 
     <div class="side-bar">
-        <div class="sidebar-link"></div>
-        <div class="sidebar-link"></div>
-        <div class="sidebar-link"></div>
-        <div class="sidebar-link"></div>
-        <div class="sidebar-link"></div>
-        <div class="sidebar-link"></div>
+        <div class="sidebar-link">
+            <img src="thumbnails/home.svg">
+            <div>
+                Home
+            </div>
+        </div>
+        <div class="sidebar-link">
+             <img src="thumbnails/explore.svg">
+             <div>
+                Explore
+             </div>
+            </div>
+        <div class="sidebar-link">
+            <img src="thumbnails/subscriptions.svg">
+            <div>
+                subscriptions
+            </div>
+        </div>
+        <div class="sidebar-link">
+            <img src="thumbnails/originals.svg">
+            <div>
+                Originals
+            </div>
+        </div>
+        <div class="sidebar-link">
+            <img src="thumbnails/youtube-music.svg">
+            <div>
+                YouTube Music
+            </div>
+        </div>
+        <div class="sidebar-link">
+            <img src="thumbnails/library.svg">
+            <div>
+                library
+            </div>
+        </div>
         <div class="sidebar-link"></div>
 
 
@@ -233,13 +433,14 @@
         </div>
         <div class="video-info">
             <p class="video-title">
-                Talking tech and AI with Google CEO Sundar Pichai!
+                
+              
             </p>
             <p class="video-author">
-                Marques Brownlie
+               
             </p>
             <p class="video-stats">
-                3.4M views  6 months
+              
             </p>
         </div>
     </div>
@@ -258,13 +459,13 @@
         </div>
         <div class="video-info">
             <p class="video-title">
-                Talking tech and AI with Google CEO Sundar Pichai!
+                Try Not To Laugh Challenge #9
             </p>
             <p class="video-author">
-                Marques Brownlie
+                Markiplier
             </p>
             <p class="video-stats">
-                3.4M views  6 months
+                12M views · 1 year ago
             </p>
         </div>
     </div>
@@ -283,13 +484,14 @@
             </div>
             <div class="video-info">
                 <p class="video-title">
-                    Talking tech and AI with Google CEO Sundar Pichai!
+                    
+                       
                 </p>
                 <p class="video-author">
-                    Marques Brownlie
+                    Veritasium
                 </p>
                 <p class="video-stats">
-                    3.4M views  6 months
+                    19M views · 4 years ago
                 </p>
             </div>
         </div>
@@ -308,13 +510,14 @@
             </div>
             <div class="video-info">
                 <p class="video-title">
-                    Talking tech and AI with Google CEO Sundar Pichai!
+                    
+                    The Simplest Math Problem No One Can Solve - Collatz...
                 </p>
                 <p class="video-author">
-                    Marques Brownlie
+                    
                 </p>
                 <p class="video-stats">
-                    3.4M views  6 months
+                    
                 </p>
             </div>
         </div>
@@ -333,13 +536,15 @@
             </div>
             <div class="video-info">
                 <p class="video-title">
-                    Talking tech and AI with Google CEO Sundar Pichai!
+                   
+                    Kadane's Algorithm to Maximum Sum Subarray Problem
                 </p>
                 <p class="video-author">
-                    Marques Brownlie
+                    CS Dojo
                 </p>
                 <p class="video-stats">
-                    3.4M views  6 months
+                    
+                    519K views · 5 years ago
                 </p>
             </div>
         </div>
@@ -357,13 +562,13 @@
         </div>
         <div class="video-info">
             <p class="video-title">
-                Talking tech and AI with Google CEO Sundar Pichai!
+                
             </p>
             <p class="video-author">
-                Marques Brownlie
+                RealLifeLore
             </p>
             <p class="video-stats">
-                3.4M views  6 months
+                6.6M views · 1 year ago
             </p>
         </div>
     </div>
@@ -433,7 +638,7 @@
             </div>
             <div class="video-info">
                 <p class="video-title">
-                    Talking tech and AI with Google CEO Sundar Pichai!
+                    The SECRET to Super Human STRENGTH
                 </p>
                 <p class="video-author">
                     Marques Brownlie
